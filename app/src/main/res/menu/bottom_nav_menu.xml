@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_chats"
+        android:title="Chats"
+        android:icon="@drawable/baseline_chat_24" />
+    <item android:id="@+id/nav_status"
+        android:title="Status"
+        android:icon="@drawable/ic_status" />
+    <item android:id="@+id/nav_calls"
+        android:title="Calls"
+        android:icon="@drawable/ic_calls" />
+</menu>

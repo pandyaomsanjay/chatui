@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Chatclone" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+
+    <style name="Theme.Chatclone" parent="Base.Theme.Chatclone" />
+
+    <style name="Theme.ChatClone" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">#075E54</item>
+        <item name="colorPrimaryVariant">#128C7E</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">#25D366</item>
+        <item name="colorSecondaryVariant">#075E54</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="android:statusBarColor">#075E54</item>
+    </style>
+</resources>

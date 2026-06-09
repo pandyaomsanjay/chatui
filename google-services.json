@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "572999288522",
+    "project_id": "chatclone-ce416",
+    "storage_bucket": "chatclone-ce416.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:572999288522:android:e72ae2d82929501ab99633",
+        "android_client_info": {
+          "package_name": "com.example.chatclone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDowIdE8zR5rBiFhxS72KToxtVNsiko49E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
