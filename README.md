@@ -108,7 +108,7 @@ app/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/chat-ui-clone.git
+git clone https://github.com/pandyaomsanjay/chatui
 ```
 
 ### Open in Android Studio
@@ -169,12 +169,6 @@ This project helps developers learn:
 ## 🤝 Contributing
 
 Contributions are welcome. Feel free to fork the repository and submit pull requests.
-
----
-
-## 📄 License
-
-This project is available under the MIT License.
 
 ---
 
