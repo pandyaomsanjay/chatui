@@ -1,110 +1,65 @@
 # 💬 Chat Clone
 
-A modern, feature‑rich Android messaging application inspired by WhatsApp and built with Firebase. This project delivers a complete real‑time chat experience with phone authentication, one‑to‑one messaging, media sharing, voice notes, status updates, group chats, and a polished Material Design 3 UI.
+A modern Android Chat UI Clone inspired by WhatsApp and Facebook Messenger. This project demonstrates a polished messaging interface with phone login (no OTP for demo), chat screens, media attachment UI, voice recording simulation, and settings – all built with Material Design 3.
 
 ---
 
 ## 📱 Overview
 
-**Chat Clone** is a production‑ready Android application developed with Android Studio and Firebase. It demonstrates how to build a scalable messaging platform with real‑time data sync, user profiles, push notifications, and an intuitive WhatsApp‑style interface.
+**Chat Clone** is a fully functional UI prototype developed with Android Studio. It showcases a realistic messaging experience with chat bubbles, typing indicators, read receipts, image sharing, voice recording, and a bottom‑navigation home screen – all without needing a backend. It’s perfect for learning Android UI patterns or as a starting point for a real‑time messaging app.
 
 ---
 
-## ✨ Features
+## ✨ Features (Implemented)
 
-### 🔐 Authentication
+### 🔐 Login
+- **Phone Number Input** with country code picker (uses `CountryCodePicker` library).
+- **No OTP** – for quick demo, login is instant; you can later add Firebase Phone Auth.
 
-- **Phone Number Login** – enter your phone number (country picker included)
-- **No OTP (Demo Mode)** – for simplified testing, verification is bypassed (you can enable Firebase Phone Auth later)
-- **User Profile Setup** – set display name, bio, and profile picture on first login
-- User data stored in Firebase Firestore
-
-### 💬 Real‑Time Chat
-
-- **One‑to‑One Messaging** – send and receive text messages instantly
-- **Message Status** – delivered and seen receipts (✓✓)
-- **Typing Indicator** – see when the other user is typing
-- **Online / Last Seen** – real‑time online status with timestamps
-- **Message Timestamps** – accurate time display per message
+### 💬 Chat Screen
+- **Send / receive text messages** – simulated with random replies.
+- **Typing indicator** – shows when the other user is typing (simulated).
+- **Message status** – delivered (✓✓) and seen (blue ✓✓) ticks.
+- **Timestamp** on every message.
+- **Sent / received bubbles** – green and white with rounded corners.
 
 ### 📎 Media Sharing
+- **Gallery picker** – select an image and preview before sending.
+- **Camera capture** – take a photo and preview.
+- **Voice recording** – simulated recording with timer and send as voice note.
+- **Preview dialog** for images before sending.
 
-- **Images** – pick from gallery or capture with camera; preview before sending
-- **Videos** – share video files (UI ready)
-- **Documents / PDFs** – attach files (UI ready)
-- **Audio Files** – send audio notes (UI ready)
-- **Location** – share location (UI ready)
-- All media stored in Firebase Storage
+### 📌 Home Screen
+- **Chat list** – sample contacts with online status and unread badges.
+- **Search** – filter chats by name or last message.
+- **Bottom navigation** – Chats, Status, Calls, Settings (status & calls are placeholders).
+- **Floating Action Button** – placeholder for new chat.
 
-### 🎤 Voice Messages
+### ⚙️ Settings & Profile
+- **Profile screen** – view and edit name, phone, bio, and profile picture (local storage).
+- **Notification settings** – toggles for message/group notifications, sound, vibrate.
+- **Privacy settings** – drop‑downs for last seen, profile photo, status visibility.
+- **Logout** – clears local user data and returns to login.
 
-- Record voice notes with a simple tap
-- Playback with play/pause controls
-- Duration display and waveform animation (simulated)
-
-### 📌 Chat Management
-
-- **Pin / Archive** – keep important chats at the top (UI ready)
-- **Mute Notifications** – per‑chat mute (UI ready)
-- **Block / Report** – block or report a user (UI ready)
-
-### 📱 Status (Stories)
-
-- Upload image, video, or text status
-- View statuses from your contacts
-- Auto‑delete after 24 hours (Firestore expiration logic)
-
-### 👥 Groups & Communities
-
-- Create groups and add members
-- Group icon and description
-- Admin controls (promote/demote members)
-- Community announcements (UI ready)
-
-### 📞 Calls (UI)
-
-- Voice call and video call buttons
-- Call history log (missed, outgoing, incoming)
-- Call UI screens (ready for WebRTC integration)
-
-### 🔔 Push Notifications
-
-- Firebase Cloud Messaging integration
-- Notify for new messages, calls, and status updates
-- Device token management
-
-### 🛡️ Privacy & Security
-
-- **Privacy Settings** – control who can see your last seen, profile photo, and status
-- **Blocked Users** – manage blocked contacts
-- **Two‑Step Verification** – (UI ready)
-- Secure Firebase Security Rules
-
-### 🎨 Modern UI/UX
-
-- **Material Design 3** with smooth animations
-- **Dark / Light Theme** – automatically adapts to system preference
-- **WhatsApp‑style Chat Bubbles** – sent (green) and received (white)
-- **Bottom Navigation** – Chats, Status, Communities, Calls, Settings
-- **Top App Bar** – app logo, search, camera, and menu icons
-- **Professional Typography** and rounded card layouts
+### 🎨 UI/UX
+- **Material Design 3** – modern components, smooth transitions.
+- **Dark / Light theme** – follows system preference.
+- **WhatsApp‑style chat bubbles** – sent (green) and received (white).
+- **Professional typography** and responsive layouts.
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology                     | Usage                                    |
-| ------------------------------ | ---------------------------------------- |
-| Android Studio                 | Development Environment                  |
-| Kotlin                         | Programming Language                     |
-| Firebase Authentication        | User Authentication (Phone)              |
-| Firebase Firestore             | Real‑time Database & Chat Storage        |
-| Firebase Storage               | Media Storage (Images, Voice, etc.)      |
-| Firebase Cloud Messaging       | Push Notifications                       |
-| Glide                          | Image Loading & Caching                  |
-| ExoPlayer                      | Audio / Video Playback                   |
-| Material Design 3              | UI Components & Theming                  |
-| CountryCodePicker (hbb20)      | Phone Number Input with Country Selector |
+| Technology                 | Usage                              |
+| -------------------------- | ---------------------------------- |
+| Android Studio (Giraffe+)  | Development Environment            |
+| Kotlin                     | Programming Language               |
+| RecyclerView               | Chat lists & message adapter       |
+| Glide                      | Image loading (avatars, previews)  |
+| Material Design 3          | UI Components & Theming            |
+| CountryCodePicker (hbb20)  | Phone input with country selection |
+| SharedPreferences          | Local user data storage            |
 
 ---
 
@@ -113,66 +68,48 @@ A modern, feature‑rich Android messaging application inspired by WhatsApp and 
 ```text
 app/src/main/java/com/example/chatclone/
 ├── activities/
-│   ├── LoginActivity.kt
-│   ├── OtpActivity.kt          (removed – OTP disabled)
-│   ├── SetupProfileActivity.kt
-│   ├── HomeActivity.kt
-│   ├── ChatActivity.kt
-│   ├── UserProfileActivity.kt
-│   ├── SettingsActivity.kt
+│   ├── LoginActivity.kt         – Phone login (no OTP)
+│   ├── HomeActivity.kt          – Chat list + bottom nav
+│   ├── ChatActivity.kt          – Message screen with sending/receiving
+│   ├── UserProfileActivity.kt   – Edit profile (local storage)
+│   ├── SettingsActivity.kt      – Settings menu
 │   ├── NotificationSettingsActivity.kt
-│   └── PrivacySettingsActivity.kt
-├── fragments/
-│   ├── ChatsFragment.kt
-│   ├── StatusFragment.kt
-│   ├── CommunitiesFragment.kt
-│   ├── CallsFragment.kt
-│   └── SettingsFragment.kt
+│   ├── PrivacySettingsActivity.kt
+│   ├── SetupProfileActivity.kt  – (not used in demo)
+│   └── WelcomeActivity.kt       – Splash screen
 ├── adapters/
-│   ├── ChatAdapter.kt
-│   ├── MessageAdapter.kt
-│   ├── StatusAdapter.kt
-│   └── SettingsAdapter.kt
+│   ├── ChatAdapter.kt           – Chat list adapter
+│   ├── MessageAdapter.kt        – Message bubbles with status
+│   └── SettingsAdapter.kt       – Settings list adapter
 ├── models/
-│   ├── Chat.kt
-│   ├── Message.kt
-│   ├── User.kt
-│   ├── Status.kt
-│   └── CallLog.kt
-├── services/
-│   ├── MyFirebaseMessagingService.kt
-│   └── ContactSyncService.kt
-└── utils/
-    ├── Constants.kt
-    └── PermissionHelper.kt
-
+│   ├── Chat.kt                  – Chat item data
+│   └── Message.kt               – Message data with media type
+└── ... (no fragments, services, or Firebase yet)
 res/
 ├── layout/
 │   ├── activity_login.xml
-│   ├── activity_otp.xml          (removed)
-│   ├── activity_setup_profile.xml
 │   ├── activity_home.xml
 │   ├── activity_chat.xml
 │   ├── activity_user_profile.xml
 │   ├── activity_settings.xml
 │   ├── activity_notification_settings.xml
 │   ├── activity_privacy_settings.xml
-│   ├── fragment_chats.xml
-│   ├── fragment_status.xml
-│   ├── fragment_communities.xml
-│   ├── fragment_calls.xml
+│   ├── activity_welcome.xml
+│   ├── activity_setup_profile.xml
+│   ├── dialog_media_preview.xml
 │   ├── item_chat.xml
 │   ├── item_message_sent.xml
 │   ├── item_message_received.xml
-│   ├── item_message_image_*.xml
-│   ├── item_message_voice_*.xml
-│   ├── item_settings.xml
-│   └── dialog_media_preview.xml
+│   ├── item_message_image_sent.xml
+│   ├── item_message_image_received.xml
+│   ├── item_message_voice_sent.xml
+│   ├── item_message_voice_received.xml
+│   └── item_settings.xml
 ├── drawable/
-│   ├── otp_box_background.xml   (optional, kept for reference)
+│   ├── otp_box_background.xml   (kept for reference)
 │   ├── message_bubble_sent.xml
 │   ├── message_bubble_received.xml
-│   └── ... other icons and shapes
+│   └── ... (icons, shapes)
 └── values/
     ├── colors.xml
     ├── strings.xml
@@ -188,65 +125,59 @@ res/
 
 ```bash
 git clone https://github.com/pandyaomsanjay/chatui.git
-cd chatui   
+cd chatui
 ```
 
 ### 2. Open in Android Studio
 
-- Open Android Studio → **Open Project** → select the project folder.
+- Open Android Studio → **Open Project** → select the cloned folder.
 - Wait for Gradle sync to finish.
 
-### 3. Firebase Setup (Mandatory)
+### 3. Run the App
 
-1. Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project.
-2. **Add your Android app** – use package name `com.example.chatclone`.
-3. Download the `google-services.json` file and place it in the **`app/`** folder.
-4. Enable **Authentication** → **Phone** (if you decide to enable OTP later) or keep it disabled for the simplified demo.
-5. Enable **Cloud Firestore** and **Storage** – set up security rules (you can start in test mode).
-6. Enable **Cloud Messaging** for push notifications.
-7. Add your debug **SHA‑1** and **SHA‑256** fingerprints in the project settings (if using Phone Auth).
-
-### 4. Build and Run
-
-- Connect a physical Android device (or emulator).
+- Connect an Android device or start an emulator.
 - Click the **Run** button (green triangle).
-- The app will launch with the Login screen.
+- The app will launch with the Welcome screen, then Login.
+
+**No Firebase setup required** – all data is local (sample chats, profile stored in `SharedPreferences`). If you later want to add Firebase, follow the optional steps below.
 
 ---
 
-## 📱 Screens (Key UI)
+## 📱 Screens (Overview)
 
 | Screen | Description |
 |--------|-------------|
-| **Splash** | App logo with gradient background |
-| **Login** | Phone number input with country picker |
-| **Profile Setup** | Enter name, bio, and optional profile picture |
-| **Home** | Bottom navigation (Chats, Status, Communities, Calls, Settings) + chat list |
-| **Chat** | Message bubbles, typing indicator, attachment options |
-| **Profile** | View and edit user details |
-| **Settings** | Notifications, Privacy, Logout |
+| **Welcome** | Splash with app name and "Get Started" button. |
+| **Login** | Phone number with country picker; tap Continue to go to Home. |
+| **Home** | Chat list with sample contacts, search, bottom navigation (Chats, Status, Calls, Settings). |
+| **Chat** | Message bubbles, typing indicator, attachment (gallery/camera), voice recording. |
+| **Profile** | View/edit name, phone, bio, and profile picture (saved locally). |
+| **Settings** | Menu with Profile, Notifications, Privacy, Chats (placeholder), Logout. |
+| **Notifications** | Toggle switches for message/group notifications, sound, vibrate. |
+| **Privacy** | Drop‑downs for last seen, profile photo, and status visibility. |
 
 ---
 
 ## 🧪 Testing Notes
 
-- **No OTP**: The login flow skips verification for quick testing. To enable OTP, uncomment the Firebase Phone Auth logic in `LoginActivity.kt` and re‑add `OtpActivity`.
-- **Media Sharing**: Camera and gallery attachments are fully functional; uploads are stored in Firebase Storage.
-- **Voice Messages**: Recording is simulated; actual recording can be enabled with `MediaRecorder`.
-- **Groups / Communities**: UI and Firestore data structure are ready; group creation logic can be added.
+- **No OTP** – the login is instant; any valid phone number works.
+- **Messages** – sending a message triggers a simulated reply after 2 seconds (random reply).
+- **Media** – gallery and camera work (requires permissions); images are previewed and sent as messages with a placeholder text.
+- **Voice** – recording is simulated (timer only); the recorded audio is not saved.
+- **Profile** – all profile data is stored in `SharedPreferences`; changes persist until logout.
+- **Status & Calls** – bottom navigation tabs show "Coming soon" toasts.
 
 ---
 
 ## 🔮 Future Enhancements
 
-- **End‑to‑End Encryption** – encrypt messages before storing in Firestore.
-- **Video / Voice Calls** – integrate WebRTC for real‑time communication.
-- **Message Reactions** – add emoji reactions to messages.
-- **Stories (Status) with Expiry** – fully implement auto‑delete (already structured).
-- **Contact Sync** – read device contacts and match with registered users.
-- **Push Notifications** – complete FCM integration (service is ready).
-- **Group Admin Controls** – add/remove members, change group icon.
-- **AI Chat Assistant** – integrate a chatbot for automated replies.
+- **Firebase Integration** – real‑time Firestore, phone auth, and Storage.
+- **End‑to‑End Encryption** – secure messaging.
+- **Group Chats** – create and manage groups.
+- **Voice / Video Calls** – WebRTC integration.
+- **Status (Stories)** – upload and view media statuses.
+- **Push Notifications** – FCM for incoming messages.
+- **Contact Sync** – match device contacts with app users.
 
 ---
 
@@ -264,8 +195,8 @@ Contributions are welcome! Fork the repository, make your changes, and submit a 
 
 ## ⭐ Support
 
-If you find this project useful, please give it a star ⭐ on GitHub to help others discover it.
+If you found this project helpful, please give it a star ⭐ on GitHub.
 
 ---
 
-**Chat Clone** – Build modern messaging apps with ease. 🚀
+**Chat Clone** – A clean, modern Android chat UI to kickstart your messaging app. 🚀
